@@ -101,7 +101,11 @@
 
   /* SERVICES */
   .svc-grid{display:grid;gap:16px;margin-top:50px;grid-template-columns:1fr}
-  @media(min-width:720px){.svc-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:720px){
+    .svc-grid{grid-template-columns:1fr 1fr}
+    .svc.entry{grid-column:1/-1}
+    .svc.entry ul{columns:2;column-gap:40px}
+  }
   .svc{border:1px solid var(--line);border-radius:var(--radius);padding:30px;position:relative;overflow:hidden;
     background:linear-gradient(180deg,rgba(245,245,245,.02),rgba(245,245,245,0));transition:border-color .25s,transform .25s}
   .svc:hover{border-color:var(--line-strong);transform:translateY(-3px)}
@@ -155,7 +159,10 @@
     font-family:inherit;font-size:15px;transition:border-color .2s}
   .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--red)}
   .field textarea{resize:vertical;min-height:110px}
-  .field select{appearance:none}
+  .field select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:42px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239a9a9d' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 15px center}
+  .field select option{background-color:#141414;color:var(--white)}
   .channels a{display:flex;align-items:center;gap:15px;border:1px solid var(--line);
     border-radius:var(--radius);padding:22px;margin-bottom:14px;transition:border-color .2s}
   .channels a:hover{border-color:var(--line-strong)}
@@ -239,10 +246,22 @@
     <div class="sec-head reveal">
       <div class="sec-tag"><span class="tick"></span><span class="label">Servicios</span></div>
       <h2>Una escalera, no un menú al azar.</h2>
-      <p>Cuatro niveles de implementación según dónde está tu negocio hoy. Empezás donde tiene sentido y subís cuando el volumen lo pide.</p>
+      <p>Cinco niveles de implementación según dónde está tu negocio hoy. Empezás donde tiene sentido y subís cuando el volumen lo pide.</p>
     </div>
 
     <div class="svc-grid">
+      <div class="svc entry reveal">
+        <span class="flag">Punto de entrada</span>
+        <h3>Landing de presentación</h3>
+        <div class="who">Profesionales, marca personal y negocios B2B que venden expertise, no un catálogo de productos.</div>
+        <ul>
+          <li>Landing responsive de hasta 7 secciones con tu marca</li>
+          <li>Formulario de contacto y botón de WhatsApp directo</li>
+          <li>Tu dominio propio con certificado SSL</li>
+          <li>Pensada para presentar y captar consultas, no para listar productos</li>
+        </ul>
+      </div>
+
       <div class="svc reveal">
         <h3>Catálogo</h3>
         <div class="who">Servicios, gastronomía y oficios con oferta estable.</div>
@@ -374,6 +393,7 @@
         <div class="field">
           <label for="interes">¿Qué te interesa?</label>
           <select id="interes" name="interes">
+            <option>Landing de presentación</option>
             <option>Catálogo</option>
             <option>Catálogo iPhone</option>
             <option>Ecommerce</option>
